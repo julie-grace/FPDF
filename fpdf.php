@@ -1011,6 +1011,7 @@ function Output($dest='', $name='', $isUTF8=false)
 			// Download file
 			$this->_checkoutput();
 			header('Content-Type: application/x-download');
+			header('Content-Length: '.strlen($this->buffer));
 			header('Content-Disposition: attachment; '.$this->_httpencode('filename',$name,$isUTF8));
 			header('Cache-Control: private, max-age=0, must-revalidate');
 			header('Pragma: public');
